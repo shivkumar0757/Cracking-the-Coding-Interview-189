@@ -3,7 +3,7 @@
 # cannot use additional data structures? 
 
 
-# Bruteforce , using 2 loops i and j
+# 1. Bruteforce , using 2 loops i and j
 
 def is_unique_bf(s:str):
     if not s: return True
@@ -14,7 +14,17 @@ def is_unique_bf(s:str):
                 return False
     return True
 
-# Usning char array to store if the char has occured?
+# 2. Sort stirng
+def is_unique_sort(s: str):
+    if not s : return True
+    s = sorted(s)
+    for i in range(len(s)-1):
+        if s[i]==s[i+1]:
+            return False
+    return True
+
+
+#3.  Usning char array to store if the char has occured?
 def is_unique_arr(s: str):
     if len(s) > 128: return False
     char_present = [False] * 128   #As we can have 0-127 characters in ascii 2
@@ -32,6 +42,9 @@ s2 = 'abd@jakjkjk@'
 
 print(f'res for bf, str: {s1}, is unique? : ', is_unique_bf(s1))
 print(f'res for bf, str: {s2}, is unique? : ', is_unique_bf(s2))
+
+print(f'res for sorted, str: {s1}, is unique? : ', is_unique_sort(s1))
+print(f'res for sorted, str: {s2}, is unique? : ', is_unique_sort(s2))
 
 print(f'res for optimised, str: {s1}, is unique? : ', is_unique_arr(s1))
 print(f'res for optimised, str: {s2}, is unique? : ', is_unique_arr(s2))
