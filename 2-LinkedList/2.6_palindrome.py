@@ -116,10 +116,6 @@ def is_palindrome_rec(ll):
 
 
 
-
-
-
-
     
 ll = LinkedList()
 ll.append(1)
